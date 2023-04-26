@@ -7,13 +7,13 @@ const y = document.getElementById("y")!;
 const cb = document.getElementById("cb")!;
 const cr = document.getElementById("cr")!;
 
-function unclamped(value: number) {
-  return Math.round(value).toString();
-}
+// function unclamped(value: number) {
+//   return Math.round(value).toString();
+// }
 
-function clamped(value: number) {
-  return Math.min(Math.max(Math.round(value), -128), 127).toString();
-}
+// function clamped(value: number) {
+//   return Math.min(Math.max(Math.round(value), -128), 127).toString();
+// }
 
 function clampedAndScaled(value: number) {
   const positive = value + 128; // [0, 255]
