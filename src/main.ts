@@ -7,6 +7,20 @@ const y = document.getElementById("y")!;
 const cb = document.getElementById("cb")!;
 const cr = document.getElementById("cr")!;
 
+function unclamped(value: number) {
+  return Math.round(value).toString();
+}
+
+function clamped(value: number) {
+  return Math.min(Math.max(Math.round(value), -128), 127).toString();
+}
+
+function clampedAndScaled(value: number) {
+  const positive = value + 128; // [0, 255]
+  const scaled = positive * 8; // [0, 2040]
+  return Math.min(Math.max(Math.round(scaled - 1020), -1020), 1016).toString(); // [-1020,1016]
+}
+
 document.getElementById("picker")!.addEventListener("change", (ev) => {
   const value = (ev.target as HTMLInputElement).value;
 
@@ -25,7 +39,7 @@ document.getElementById("picker")!.addEventListener("change", (ev) => {
   const crv =
     0.500019 * (rv - 128) - 0.41873 * (gv - 128) - 0.0812885 * (bv - 128);
 
-  y.innerText = Math.min(Math.max(Math.round(yv), -128), 127).toString();
-  cb.innerText = Math.min(Math.max(Math.round(cbv), -128), 127).toString();
-  cr.innerText = Math.min(Math.max(Math.round(crv), -128), 127).toString();
+  y.innerText = clampedAndScaled(yv);
+  cb.innerText = clampedAndScaled(cbv);
+  cr.innerText = clampedAndScaled(crv);
 });
