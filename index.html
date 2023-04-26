@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YCBCR</title>
+  </head>
+  <body>
+    <div id="fullscreen">
+      <h1>Choose a colour...</h1>
+      <input type="color" id="picker" />
+      <div id="data">
+        <table>
+          <tbody>
+            <tr>
+              <td>R</td>
+              <td id="r">0x00</td>
+            </tr>
+            <tr>
+              <td>G</td>
+              <td id="g">0x00</td>
+            </tr>
+            <tr>
+              <td>B</td>
+              <td id="b">0x00</td>
+            </tr>
+          </tbody>
+        </table>
+        <table>
+          <tbody>
+            <tr>
+              <td>Y</td>
+              <td id="y">0</td>
+            </tr>
+            <tr>
+              <td>Cb</td>
+              <td id="cb">0</td>
+            </tr>
+            <tr>
+              <td>Cr</td>
+              <td id="cr">0</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
